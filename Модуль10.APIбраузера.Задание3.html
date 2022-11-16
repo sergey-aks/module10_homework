@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    .chat-wrapper {
+      width: fit-content;
+      height: auto;
+      border: 1px solid #707070;
+      border-radius: 5px;
+      padding: 10px;
+      -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    }
+
+    .chat-wrapper__head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .chat-wrapper__body {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-wrapper__body,
+    .chat-wrapper__head-message {
+      border: 2px solid #b5b5b5;
+    }
+
+    .chat-wrapper__head-message {
+      padding: 5px;
+      width: 210px;
+    }
+
+    button {
+      cursor: pointer;
+      background-color: #b5b5b5;
+      border: 1px solid #707070;
+    }
+
+    button:hover {
+      -webkit-box-shadow: 4px 4px 4px 0px rgba(34, 60, 80, 0.2);
+      -moz-box-shadow: 4px 4px 4px 0px rgba(34, 60, 80, 0.2);
+      box-shadow: 4px 4px 4px 0px rgba(34, 60, 80, 0.2);
+    }
+
+    .message-wrapper {
+      display: flex;
+      margin: 5px 15px;
+    }
+
+    .message-wrapper.server-message {
+      justify-content: flex-start;
+    }
+
+    .message-wrapper.client-message {
+      justify-content: flex-end;
+    }
+
+    .message {
+      width: 170px;
+      border-radius: 5px;
+      padding: 5px 10px;
+      -webkit-box-shadow: 4px 4px 4px 0px rgba(34, 60, 80, 0.2);
+      -moz-box-shadow: 4px 4px 4px 0px rgba(34, 60, 80, 0.2);
+      box-shadow: 4px 4px 4px 0px rgba(34, 60, 80, 0.2);
+      position: relative;
+    }
+
+    .server-message .message {
+      background-color: #bde4fa;
+    }
+
+    .client-message .message {
+      background-color: #acf9d1;
+      text-align: right;
+    }
+
+    .server-message .message::before,
+    .client-message .message::after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 0;
+      height: 0;
+    }
+
+    .server-message .message::before {
+      border: 0.5em solid #bde4fa;
+      border-color: #bde4fa #bde4fa transparent transparent;
+      top: 0;
+      left: -13px;
+    }
+
+    .client-message .message::after {
+      border: 0.5em solid #acf9d1;
+      border-color: #acf9d1 #acf9d1 transparent transparent;
+      top: 0;
+      right: -13px;
+      transform: rotate(-90deg);
+    }
+
+    .chat-wrapper__error {
+      margin-top: 20px;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="chat-wrapper">
+    <form id="chatSendForm" class="chat-wrapper__head">
+      <input id="chatInput" type="text" class="chat-wrapper__head-message" placeholder="Здесь вводится текст сообщения">
+      <button id="send">Отправить</button>
+      <button id="geo">Гео-локация</button>
+    </form>
+    <div id="chatBody" class="chat-wrapper__body">
+    </div>
+  </div>
+  <div id="error" class="chat-wrapper__error">
+
+    <script src="Модуль10.APIбраузера.Задание3.js"></script>
+</body>
+
+</html>
